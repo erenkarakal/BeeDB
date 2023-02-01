@@ -57,5 +57,3 @@ function beedb_map_nbt_to_var(nbt: nbt compound, index: string):
     else:
       # the value is not an nbt compound, meaning we reached the bottom.
       set {{@namespace}%{_index}%::%loop-value%} to {_tag}
-    
-  
