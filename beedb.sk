@@ -10,6 +10,7 @@ on join:
   
 on quit:
   beedb_save_data(player)
+  delete {{@namespace}::%player's uuid%::*}
 
 every {@save.delay}:
   loop all players:
