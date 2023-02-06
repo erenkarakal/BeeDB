@@ -21,7 +21,6 @@ function beedb_save_data(p: player):
   loop nbt tags of {_nbt}:
     delete tag loop-value of {_nbt}
   add beedb_map_var_to_nbt((indices of {{@namespace}::%{_p}'s uuid%::*}), ("::%{_p}'s uuid%")) to {_nbt} 
-  broadcast {_nbt}
   save nbt file of {_nbt}
 
 function beedb_load_data(p: player):
