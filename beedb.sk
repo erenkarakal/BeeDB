@@ -34,14 +34,14 @@ function beedb_map_var_to_nbt(indices: strings, base.index: string, current.inde
     set {_tag} to (subtext of {_tag} from character 2 to (the length of {_tag})) # delete the first character because it is ";"
     set {_tag} to "%{_tag}%;"
   set {_nbt} to (nbt compound from "{}")
-
+  
   loop {_indices::*}:
     if {{@namespace}%{_base.index}%%{_current.index}%::%loop-value%} is set:
       set tag "%{_tag} ? ""%%loop-value%" of {_nbt} to {{@namespace}%{_base.index}%%{_current.index}%::%loop-value%}
       
     if indices of {{@namespace}%{_base.index}%%{_current.index}%::%loop-value%::*} is set:
-      add beedb_map_var_to_nbt((indices of {{@namespace}%{_base.index}%%{_current.index}%::%loop-value%::*}), "%{_current.index}%::%loop-value%") to {_nbt}
-                                                        
+      add beedb_map_var_to_nbt((indices of {{@namespace}%{_base.index}%%{_current.index}%::%loop-value%::*}), {_base.index}, "%{_current.index}%::%loop-value%") to {_nbt}
+
   return {_nbt}
 
 # recursively loop the nbt tags and set the variable
